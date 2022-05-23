@@ -1,0 +1,29 @@
+.new-tweet {
+  width: 80%;
+}
+
+#tweet-text {
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-bottom: solid 2px;
+  resize: none;
+  width: 100%;
+  height: 40px;
+  background: none;
+  margin-bottom: 10px;
+}
+
+.form-action {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Bungee';
+}
+
+button {
+  background-color: #00539CFF;
+  color: #FFFFFF;
+  padding: 10px;
+
+  border-style: none;
+}
