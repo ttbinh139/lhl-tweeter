@@ -6,7 +6,10 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -31,6 +34,50 @@ main {
   background-color: #EEA47FFF;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+.tweet-container {
+  width: 80%;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+article.tweet {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: solid 2px darkslategray;
+  margin-top: 10px;
+}
+
+article.tweet header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: auto;
+}
+
+article.tweet footer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.tweet-body {
+  border-bottom: solid 2px darkslategray;
+  padding-bottom: 20px;
+  margin: 20px 0px;
+}
+
+.tweet-owner {
+  display: flex;
+  align-items: center;
+}
