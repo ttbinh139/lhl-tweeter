@@ -53,7 +53,7 @@ main {
 article.tweet {
   display: flex;
   flex-direction: column;
-  padding: 10px;
+  padding: 16px;
   border: solid 2px darkslategray;
   margin-top: 10px;
 }
@@ -63,6 +63,7 @@ article.tweet header {
   justify-content: space-between;
   flex-direction: row;
   height: auto;
+  margin-top: auto;
 }
 
 article.tweet footer {
