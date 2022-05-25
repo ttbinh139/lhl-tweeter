@@ -43,7 +43,7 @@ main {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
-.tweet-container {
+#tweet-container {
   width: 80%;
   margin-top: 30px;
   display: flex;
@@ -81,6 +81,10 @@ article.tweet footer {
 .tweet-owner {
   display: flex;
   align-items: center;
+}
+
+.tweet-owner img {
+  margin-right: 10px;
 }
 
 i.fa-solid {
