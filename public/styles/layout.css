@@ -82,3 +82,11 @@ article.tweet footer {
   display: flex;
   align-items: center;
 }
+
+i.fa-solid {
+  padding-right: 10px;
+}
+
+i.fa-solid:hover {
+  color: blue;
+}
