@@ -33,7 +33,8 @@ const data = [
     "user": {
       "name": "Descartes",
       "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
+      "handle": "@rd"
+    },
     "content": {
       "text": "Je pense , donc je suis"
     },
@@ -67,15 +68,35 @@ const createTweetElement = function (tweet) {
   return outputHtml;
 }
 
-const renderTweets = function(tweets) {
+const renderTweets = function (tweets) {
   for (let tweet of tweets) {
     let outputTweetHtml = createTweetElement(tweet);
     $("#tweet-container").append(outputTweetHtml);
   }
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
   renderTweets(data);
+
+  $("#frm-new-tweet").submit(function (event) {
+    event.preventDefault();
+
+    let val = $("#txt-tweet-text").val();
+    var form = $(this);
+    var actionUrl = form.attr('action');
+
+    if (val.length > 0 && val.length < 140) {
+      //console.log("Form submited", val);
+      $.ajax({
+        type: "POST",
+        url: actionUrl,
+        data: form.serialize(), // serializes the form's elements.
+        success: function (data) {
+          alert(data); // show response from the php script.
+        }
+      });
+    }
+  });
 })
 
 
