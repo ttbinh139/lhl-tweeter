@@ -51,6 +51,14 @@ $(document).ready(function () {
   };
   loadTweets();
   //renderTweets(data);
+  const validTweet = function(tweetText) {
+    if (tweetText.length <= 0) {
+      return -1;
+    } else if (tweetText.length > 140) {
+      return 0;
+    }
+    return 1;
+  }
 
   $("#frm-new-tweet").submit(function (event) {
     event.preventDefault();
@@ -59,7 +67,8 @@ $(document).ready(function () {
     var form = $(this);
     var actionUrl = form.attr('action');
 
-    if (val.length > 0 && val.length < 140) {
+    if (validTweet(val) === 1) {
+      $('span.error').empty();
       //console.log("Form submited", val);
       $.ajax({
         type: "POST",
@@ -69,6 +78,10 @@ $(document).ready(function () {
           alert(data); // show response from the php script.
         }
       });
+    } else if (validTweet(val) === -1) {
+      $('span.error').html("Tweet can't be empty");
+    } else if (validTweet(val) === 0) {
+      $('span.error').html("Tweet can't be too long");
     }
   });
 

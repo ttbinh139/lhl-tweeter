@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $("#tweet-text").keyup(function(event) {
+  $("#txt-tweet-text").keyup(function(event) {
     let text = $(this).val();
     let characterLeft = 140 - text.length;
     $(".counter").html(characterLeft);
