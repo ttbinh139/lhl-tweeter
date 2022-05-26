@@ -31,7 +31,12 @@ const createTweetElement = function (tweet) {
   return outputHtml;
 }
 
-const renderTweets = function (tweets) {
+const renderTweets = function (data) {
+  // Sort tweet by created to display newest tweet first
+  tweets = data.sort((a, b) => {
+    return a.created_at - b.created_at < 0;
+  });
+
   for (let tweet of tweets) {
     let outputTweetHtml = createTweetElement(tweet);
     $("#tweet-container").append(outputTweetHtml);
@@ -75,7 +80,8 @@ $(document).ready(function () {
         url: actionUrl,
         data: form.serialize(), // serializes the form's elements.
         success: function (data) {
-          alert(data); // show response from the php script.
+          $("#tweet-container").empty();
+          loadTweets();
         }
       });
     } else if (validTweet(val) === -1) {
