@@ -3,6 +3,11 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 const createTweetElement = function (tweet) {
   let outputHtml = 
@@ -16,7 +21,7 @@ const createTweetElement = function (tweet) {
           <span>${tweet.user.handle}</span>
         </div>
       </header>
-      <div class="tweet-body">${tweet.content.text}</div>
+      <div class="tweet-body">${escape(tweet.content.text)}</div>
       <footer>
         <div class="footer-left">
           <span class="timeago">${timeago.format(tweet.created_at)}</span>
@@ -30,6 +35,8 @@ const createTweetElement = function (tweet) {
     </article>`;
   return outputHtml;
 }
+
+
 
 const renderTweets = function (data) {
   // Sort tweet by created to display newest tweet first
