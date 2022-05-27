@@ -104,3 +104,34 @@ span.error {
   color: red;
   margin-bottom: 20px;
 }
+
+@media all and (max-width: 1023px) {
+  header {
+    height: 280px;
+  }
+
+  header #img-user {
+    width: 150px;
+    height: 150px;
+  }
+
+  article.tweet{
+    font-size: 4vw;
+  }
+
+  .tweet-owner img {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  header {
+    height: 360px;
+  }
+
+  article.tweet {
+    font-size: 2vw;
+  }
+}
