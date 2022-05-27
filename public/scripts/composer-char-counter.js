@@ -1,3 +1,7 @@
+/**
+ * Display counter characters when user typing in text area
+ * Display counter in red color when over 140 characters
+ */
 $(document).ready(function() {
   $("#txt-tweet-text").keyup(function(event) {
     let text = $(this).val();
