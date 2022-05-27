@@ -58,6 +58,10 @@ article.tweet {
   margin-top: 10px;
 }
 
+article.tweet:hover{
+  box-shadow: 4px 4px 4px #333;
+}
+
 article.tweet header {
   display: flex;
   justify-content: space-between;
@@ -76,6 +80,7 @@ article.tweet footer {
   border-bottom: solid 2px darkslategray;
   padding-bottom: 20px;
   margin: 20px 0px;
+  overflow-wrap: break-word;
 }
 
 .tweet-owner {

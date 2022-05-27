@@ -28,7 +28,7 @@ const createTweetElement = function (tweet) {
         </div>
         <div class="footer-right">
           <i class="fa-solid fa-flag"></i>
-          <i class="fa-solid fa-arrows-rotate"></i>
+          <i class="fa-solid fa-retweet"></i>
           <i class="fa-solid fa-heart"></i>
         </div>
       </footer>
@@ -74,21 +74,20 @@ $(document).ready(function () {
 
   $("#frm-new-tweet").submit(function (event) {
     event.preventDefault();
-
-    let val = $("#txt-tweet-text").val();
+    let val = escape($("#txt-tweet-text").val());
     var form = $(this);
     var actionUrl = form.attr('action');
 
     if (validTweet(val) === 1) {
       $('span.error').empty();
-      //console.log("Form submited", val);
       $.ajax({
         type: "POST",
         url: actionUrl,
         data: form.serialize(), // serializes the form's elements.
-        success: function (data) {
-          $("#tweet-container").empty();
-          loadTweets();
+        success: function (response) {
+          $("#tweet-container").prepend(createTweetElement(response));
+          $("#txt-tweet-text").val('');
+          $(".counter").html(140);
         }
       });
     } else if (validTweet(val) === -1) {
@@ -96,6 +95,12 @@ $(document).ready(function () {
     } else if (validTweet(val) === 0) {
       $('span.error').html("Tweet can't be too long");
     }
+  });
+
+  // Show/hide New Tweet panel when user click on "Write a new tweet"
+  $('#btnNewTweet').click(function(event) {
+    $(".new-tweet").slideToggle("slow");
+    $("#txt-tweet-text").focus();
   });
 
 })

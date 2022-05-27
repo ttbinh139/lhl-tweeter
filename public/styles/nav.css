@@ -11,10 +11,13 @@ nav {
   top: 0;
   width: 100%;
 }
+.nav-logo span {
+  font-family: 'Bungee';
+}
 
 nav span {
 
-  font-family: 'Bungee';
+  font-family: 'Source Sans Pro';
 }
 .nav-right {
   display: flex;
